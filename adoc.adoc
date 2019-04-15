@@ -1,0 +1,256 @@
+= IMS Ecosystem - przykład dokumentu
+
+== High Level Design
+
+Data utworzenia: 29.03.2019
+
+Data ostatniej modyfikacji: 29.03.2019
+
+Wersja: 1.00
+
+Status: do akceptacj
+
+Testowanie możliwości wtyczki w IntelliJ
+
+= AsciiDoc Writer's Guide
+Doc Writer <doc.writer@asciidoctor.org>
+
+v1.0, 2013-08-01
+
+:toc: right
+
+[TIP]
+Rekomendujemy asciidoctor do tworzenia dokumentacji...
+
+
+== Spis treści
+. <<Historia dokumentu>>
+. <<Przykłady nagłówków>>
+. <<Przykłady tabel>>
+. <<Blok tekstu>>
+. <<Umieszczenie fragmentu kodu>>
+. <<Lista numerowana>>
+. <<Lista wypunktowana>>
+. <<Formatowanie tekstu>>
+. <<Użycie linku>>
+. <<Wstawienie rysunków>>
+. <<Wstawienie dokumentu>>
+. <<Komentarza>>
+
+== Rysunki
+. <<Integracje HH>>
+. <<Zdalny dostęp na rzecz utrzymania - produkcja>>
+. <<Zdalny dostęp na rzecz rozwoju - środowisko testowe>>
+
+== Tabele
+. <<Tabela zwykła>>
+. <<Tabele z łączonymi komórkami>>
+
+== Historia dokumentu
+
+|===
+| LP | Autor | Data | Zakres
+
+| 1
+| Vimana Solutions
+| 01.04.2019
+| Utworzenie dokumentu
+
+|===
+
+== Przykłady nagłówków
+= Nagłowek pierwszego stopnia
+== Nagłowek drugiego stopnia
+=== Nagłowek trzeciego stopnia
+==== Nagłowek czwartego stopnia
+
+== Blok tekstu
+*************************
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem.
+Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.
+Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum,
+dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae
+dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est.
+ Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque.
+ Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor,
+ et mollis pede metus eget nisi. Praesent sodales velit quis augue.
+ Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa nibh nec erat."
+*************************
+
+== Umieszczenie fragmentu kodu
+
+--------------------------------------
+mysql> desc Bookings;
+
+**+---------------+-------------+------+-----+---------+----------------+**
+
+**| Field | Type | Null | Key | Default | Extra |**
+
+**+---------------+-------------+------+-----+---------+----------------+**
+
+**| bk_id | int(11) | NO | PRI | NULL | auto_increment |**
+
+**| bk_num_a | varchar(20) | YES | | NULL | |**
+
+**| bk_starttime | bigint(20) | NO | MUL | NULL | |**
+
+**| bk_endtime | bigint(20) | NO | MUL | NULL | |**
+
+**| bk_maxmembers | int(11) | NO | | 5 | |**
+
+**+---------------+-------------+------+-----+---------+----------------+**
+--------------------------------------
+
+== Przykłady tabel
+
+=== Tabela zwykła
+
+|===
+| Kolumna 1 | Kolumna 2 | Kolumna 3 | Kolumna 4
+
+| Kolumna 1, wiersz 1
+| Kolumna 2, wiersz 1
+| Kolumna 3, wiersz 1
+| Kolumna 4, wiersz 1
+
+| Kolumna 1, wiersz 2
+| Kolumna 2, wiersz 2
+| Kolumna 3, wiersz 2
+| Kolumna 4, wiersz 2
+
+| Kolumna 1, wiersz 3
+| Kolumna 2, wiersz 3
+| Kolumna 3, wiersz 3
+| Kolumna 4, wiersz 3
+
+|===
+
+=== Tabele z łączonymi komórkami
+
+Tabela z łączonymi kolumnami
+|===
+| Kolumna 1 | Kolumna 2
+
+| Kolumna 1, wiersz 1
+| Kolumna 2, wiersz 1
+
+// This cell spans 2 columns, indicated
+// by the number before the + sign.
+// The + sign
+// tells Asciidoctor to span this
+// cell over multiple columns.
+2+| Kolumna 1 i 2 połączone, wiersz 2
+
+|===
+
+Tabela z łączonymi wierszami
+|===
+| Kolumna 1 | Kolumna 2
+
+// This cell spans 2 rows,
+// because the number after
+// the dot (.) specifies the number
+// of rows to span. The + sign
+// tells Asciidoctor to span this
+// cell over multiple rows.
+.2+| Kolumna 1, wiersz 1 i 2 połączone
+| Kolumna 2, wiersz 2
+
+| Kolumna 2, wiersz 2
+
+|===
+
+Tabela z łączonymi wierszami i komórkami
+|===
+| Kolumna 1 | Kolumna 2 | Kolumna 3
+
+// We can combine the numbers for
+// row and column span within one
+// cell specifier.
+// The number before the dot (.)
+// is the number of columns to span,
+// the number after the dot (.)
+// is the number of rows to span.
+2.2+| Kolumna 1 i 2 połączone, wiersz 1 i 2 połączone
+| Kolumna 3, wiersz 1
+| Kolumna 3, wiersz 2
+
+|===
+
+== Lista numerowana
+Aby stworzyć automatyczną listę numerowaną należy na początku linii postawić ". "
+
+. Punkt pierwszy
+. Punkt drugi
+. Punkt trzeci
+
+== Lista wypunktowana
+
+Do listy wypunktowanej należy zastosowąć znaki "*"
+
+* Pierwszy punkt
+* Drugi Punkt
+* Trzeci punkt
+** Pierwszy podpunkt
+** Drugi podpunkt
+*** Pierwszy podpunkt zagnieżdżony
+*** Drugi podpunkt zagnieżdżony
+* Czwarty punkt
+
+== Formatowanie tekstu
+
+_tekst pochylony_
+
+*tekst pogrubiony*
+
+== Użycie linku
+
+link: http://google.pl
+
+== Wstawienie rysunków
+
+=== Integracje HH
+image:gfx/rysunek1.png[width=500]
+
+CNP
+
+=== Zdalny dostęp na rzecz utrzymania - produkcja
+image:gfx/rysunek2.png[width=800]
+
+Halmahera
+
+=== Zdalny dostęp na rzecz rozwoju - środowisko testowe
+
+image:gfx/rysunek3.png[width=800]
+
+Serwer deweloperski
+
+== Wstawienie dokumentu
+
+link:testascii.adoc[plik dołączony]
+
+== Komentarz
+komentarz możliwy jest do zastosowania m-dzy znakami /// jakiś tekst /// w kolejnych liniach kodu
+////
+Tutaj komentarz niewidoczny w output
+Numeracje zamienić na słowa - Done
+Zrobić linki do asciidoctora na internecie
+Przykłady TIPów itp...
+TIPy jako komentarze do zawartości - treści
+Sprawdzić czy można zrobić automatyczny spis treści TOC
+////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
